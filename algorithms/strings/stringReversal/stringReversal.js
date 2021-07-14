@@ -11,17 +11,17 @@
 
 //Solution 2
 //Using the reduce method
-// const reverse = (str) => str.split("").reduce((a, c) => c + a);
+const reverse = (str) => str.split("").reduce((a, c) => c + a);
 
 //Solution 3
 //Using a loop
 
-const reverse = (str) => {
-  let reversed = "";
-  for (char of str) {
-    reversed = char + reversed;
-  }
-  return reversed;
-};
+// const reverse = (str) => {
+//   let reversed = "";
+//   for (char of str) {
+//     reversed = char + reversed;
+//   }
+//   return reversed;
+// };
 
 module.exports = reverse;
