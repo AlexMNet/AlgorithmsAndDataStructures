@@ -13,6 +13,15 @@ or;
 
 const reverse = (str) => Array.from(str).reverse().join('');
 
+//Recursive solution, not working with test.js
+// const reverse = (str, n = str.length - 1, revesredStr = '') => {
+//   if (n < 0) return revesredStr;
+
+//   revesredStr = revesredStr + str[n];
+
+//   return reverse(str, n - 1, revesredStr);
+// };
+
 //Typescript
 // const reverse = (str: string) => str.split('').reverse().join('');
 // console.log(reverse('Alex'));
