@@ -44,3 +44,17 @@ const sumZero = (arr) => {
   }
   return undefined;
 };
+
+const twoSum = (nums, target) => {
+  const prevValues = {};
+  for (let i = 0; i < nums.length; i++) {
+    const compliment = target - nums[i];
+    const index2 = prevValues[compliment];
+
+    if (index2 != null) {
+      return [i, index2];
+    } else {
+      prevValues[nums[i]] = i;
+    }
+  }
+};
