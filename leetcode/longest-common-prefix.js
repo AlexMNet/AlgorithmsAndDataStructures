@@ -19,12 +19,15 @@ Explanation: There is no common prefix among the input strings.
 longestCommonPrefix(['flower', 'flow', 'flight']);
 
 const longestCommonPrefix = (arr) => {
-  let result = '';
+  let i = 0;
+  let firstWord = arr[0];
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i][i] === arr[i + 1][i] && arr[i][i] === arr[i + 2][i]) {
-      result += arr[i][i];
-    }
+  // Check the first word against every other word in the array.
+  //Increment i if all all words have the same letter at the index.
+  //If the while loop is broken, this means you can return
+  while (firstWord[i] && arr.every((w) => w[i] === firstWord[i])) {
+    i++;
   }
-  return result;
+
+  return arr[0].substr(0, i);
 };
