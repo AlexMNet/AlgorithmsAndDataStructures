@@ -58,4 +58,28 @@
 
 // console.log([0, 4, 8, 16].concat([0, 2, 6, 12, 14, 20]).sort((a, b) => a - b));
 
-// console.log(solution([0, 4, 8, 16], [0, 2, 6, 12, 14, 20]));
+function solution(a, b) {
+  let smallestdiff = Infinity;
+  const uniqueCombinedSortedArray = [
+    ...new Set(a.concat(b).sort((a, b) => a - b)),
+  ];
+  const result = [];
+
+  for (let i = 0; i < a.length - 1; i++) {
+    smallestdiff = Math.min(smallestdiff, a[i + 1] - a[i]);
+  }
+
+  result.push(uniqueCombinedSortedArray[0]);
+
+  for (let i = 1; i < uniqueCombinedSortedArray.length; i++) {
+    if (
+      uniqueCombinedSortedArray[i] - uniqueCombinedSortedArray[i - 1] ===
+      smallestdiff
+    ) {
+      result.push(uniqueCombinedSortedArray[i]);
+    }
+  }
+
+  return result;
+}
+console.log(solution([0, 4, 8, 16], [0, 2, 6, 12, 14, 20]));
