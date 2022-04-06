@@ -243,26 +243,3 @@
 // }
 
 // console.log(solution([2, 4, 7, 5, 3, 5, 8, 5, 1, 7], 4, 10));
-
-const arr = ['Daisy', 'Rose', 'Hyacinth', 'Poppy'];
-
-const solution = (arr) => {
-  let i = 0;
-  let result = '';
-  let numOfFails = 0;
-
-  while (numOfFails < arr.length) {
-    numOfFails = 0;
-    arr.forEach((word) => {
-      if (word[i]) {
-        result += word[i];
-      } else {
-        numOfFails += 1;
-      }
-    });
-    i++;
-  }
-  return result;
-};
-
-console.log(solution(arr));
