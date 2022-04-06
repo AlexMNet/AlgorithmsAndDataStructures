@@ -219,27 +219,50 @@
 // }
 
 // console.log(solution(a));
-123;
+// 123;
 
-function solution(a, m, k) {
-  let pairs = 0;
-  for (let i = 0; i < a.length - 3; i++) {
-    let result = [];
-    for (let j = i; j < m + i; j++) {
-      result.push(a[j]);
-    }
-    console.log(result);
-    for (let x = 0; x < result.length - 1; x++) {
-      for (let l = x + 1; l < result.length; l++) {
-        console.log(result[x], result[l]);
-        if (result[x] + result[l] === k) {
-          console.log('A Pair!');
-          pairs += 1;
-        }
+// function solution(a, m, k) {
+//   let pairs = 0;
+//   for (let i = 0; i < a.length - 3; i++) {
+//     let result = [];
+//     for (let j = i; j < m + i; j++) {
+//       result.push(a[j]);
+//     }
+//     console.log(result);
+//     for (let x = 0; x < result.length - 1; x++) {
+//       for (let l = x + 1; l < result.length; l++) {
+//         console.log(result[x], result[l]);
+//         if (result[x] + result[l] === k) {
+//           console.log('A Pair!');
+//           pairs += 1;
+//         }
+//       }
+//     }
+//   }
+//   return pairs;
+// }
+
+// console.log(solution([2, 4, 7, 5, 3, 5, 8, 5, 1, 7], 4, 10));
+
+const arr = ['Daisy', 'Rose', 'Hyacinth', 'Poppy'];
+
+const solution = (arr) => {
+  let i = 0;
+  let result = '';
+  let numOfFails = 0;
+
+  while (numOfFails < arr.length) {
+    numOfFails = 0;
+    arr.forEach((word) => {
+      if (word[i]) {
+        result += word[i];
+      } else {
+        numOfFails += 1;
       }
-    }
+    });
+    i++;
   }
-  return pairs;
-}
+  return result;
+};
 
-console.log(solution([2, 4, 7, 5, 3, 5, 8, 5, 1, 7], 4, 10));
+console.log(solution(arr));
