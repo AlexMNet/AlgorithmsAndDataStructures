@@ -30,20 +30,22 @@ Output: [0,1]
 //Given: Array of nums & target value
 //Result: Array of the indices of that values that add up to the target
 
+let nums = [2, 7, 11, 15];
+let target = 9;
+
 const twoSum = (nums, target) => {
-  const prevValues = {};
+  const hash = {};
 
   for (let i = 0; i < nums.length; i++) {
-    let currentValue = nums[i];
-    let neededValue = target - currentValue;
-    let idx2 = prevValues[neededValue];
+    const num = nums[i];
+    const complimentValue = target - nums[i];
 
-    if (idx2 !== undefined) {
-      return [i, idx2];
+    if (complimentValue in hash) {
+      return [i, hash[complimentValue]];
     } else {
-      prevValues[currentValue] = i;
+      hash[num] = i;
     }
   }
 };
-
+console.log(twoSum(nums, target)); //[1, 0]
 //Can also be solved via brute force with nested arrays
