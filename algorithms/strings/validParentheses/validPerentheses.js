@@ -19,8 +19,7 @@ var isValid = function (s) {
   let stack = [];
   let map = { '(': ')', '{': '}', '[': ']' };
 
-  for (let i in s) {
-    const char = s.charAt(i);
+  for (let char of s) {
     if (char in map) {
       stack.push(char);
     } else {

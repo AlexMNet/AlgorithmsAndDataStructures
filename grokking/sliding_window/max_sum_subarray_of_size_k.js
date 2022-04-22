@@ -36,4 +36,4 @@ const max_sum_sub_array = (array, k) => {
 const array = [2, 3, 4, 1, 5];
 const k = 2;
 
-console.log(max_sum_sub_array(array, k));
+console.log(max_sum_sub_array(array, k)); //7
