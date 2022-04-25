@@ -22,23 +22,47 @@ Output: false
  
  */
 
-isValid('()'); //true
-isValid('()[]{}'); //true
-isValid('(]'); //false
+// isValid('()'); //true
+// isValid('()[]{}'); //true
+// isValid('(]'); //false
 
-//Solution first time through
-var isValid = function (s) {
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === '(') {
-      if (s[i + 1] !== ')') return false;
-    }
-    if (s[i] === '[') {
-      if (s[i + 1] !== ']') return false;
-    }
-    if (s[i] === '{') {
-      if (s[i + 1] !== '}') return false;
+//Better solution
+const isValid = (s) => {
+  let stack = [];
+  let map = { '(': ')', '[': ']', '{': '}' };
+
+  for (let char of s) {
+    if (char in map) {
+      stack.push(char);
+    } else {
+      let openParen = stack.pop();
+
+      if (map[openParen] !== char) {
+        return false;
+      }
     }
   }
 
-  return true;
+  return stack.length === 0;
 };
+
+//Solution first time through
+// var isValid = function (s) {
+//   for (let i = 0; i < s.length; i++) {
+//     if (s[i] === '(') {
+//       if (s[i + 1] !== ')') return false;
+//     }
+//     if (s[i] === '[') {
+//       if (s[i + 1] !== ']') return false;
+//     }
+//     if (s[i] === '{') {
+//       if (s[i + 1] !== '}') return false;
+//     }
+//   }
+
+//   return true;
+// };
+
+console.log(isValid('()')); //true
+console.log(isValid('()[]{}')); //true
+console.log(isValid('(]')); //false

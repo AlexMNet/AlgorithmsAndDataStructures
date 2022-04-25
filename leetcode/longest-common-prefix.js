@@ -16,8 +16,6 @@ Explanation: There is no common prefix among the input strings.
 
 */
 
-longestCommonPrefix(['flower', 'flow', 'flight']);
-
 const longestCommonPrefix = (arr) => {
   let i = 0;
   let firstWord = arr[0];
@@ -31,3 +29,6 @@ const longestCommonPrefix = (arr) => {
 
   return arr[0].substr(0, i);
 };
+
+console.log(longestCommonPrefix(['flower', 'flow', 'flight']));
+console.log(longestCommonPrefix(['dog', 'racecar', 'car']));
