@@ -19,17 +19,30 @@ The left pointer is also keeping track of how many items are in the "new" array 
 We are just sorting in place. 
 */
 
-function remove_duplicates(arr) {
-  let leftPointer = 0;
+//Easier to understand
+const remove_duplicates = (arr) => {
+  let left = 1;
 
-  for (let rightPointer = 0; rightPointer < arr.length; rightPointer++) {
-    if (arr[rightPointer] !== arr[rightPointer - 1]) {
-      arr[leftPointer] = arr[rightPointer];
-      leftPointer++;
+  for (let right = 1; right < arr.length; right++) {
+    if (arr[right] !== arr[right - 1]) {
+      arr[left] = arr[right];
+      left++;
     }
   }
-  return leftPointer;
-}
+  return left;
+};
+
+// function remove_duplicates(arr) {
+//   let leftPointer = 0;
+
+//   for (let rightPointer = 0; rightPointer < arr.length; rightPointer++) {
+//     if (arr[rightPointer] !== arr[rightPointer - 1]) {
+//       arr[leftPointer] = arr[rightPointer];
+//       leftPointer++;
+//     }
+//   }
+//   return leftPointer;
+// }
 
 // function remove_duplicates(arr) {
 //   // index of the next non-duplicate element
